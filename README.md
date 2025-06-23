@@ -1,1 +1,1 @@
-# This is a temporary repo for the Exercism Bootcamp
+# This is the homepage of my own little website
