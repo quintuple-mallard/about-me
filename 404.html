@@ -1,7 +1,25 @@
 <!DOCTYPE HTML>
 <html>
   <h1>404 Error</h1>
-<h2>Oops! Looks like the page you wanted can't be found.</h2>
-<p>Many pages migrate south during winter, while others are shy during the molt in summer.</p>
+  <p>
+    Oops! Looks like we can't find that page.
+    Are you sure you typed it correctly?
+    Options: 
+    <ul>
+      <li>Go to the <a href="https://quintuple-mallard.github.io/about-me">homepage</a></li>
+      <li>Reload the page with Ctrl/Cmd + r</li>
+      <li>Press the "Fix everything" button</li>
+      <li>Try <a href="https://github.com/quintuple-mallard/mallard-lang">Mallard</a></li>
+    </ul>
+  </p>
+  <button id="fix">Fix everything</button>
+  <p id="btn-msg" style="display:none">Nothing was fixed</p>
+  <script>
+    button.addEventListener("click",
+      () => {
+        document.querySelector("#btn-msg").style.display = "block"
+      }
+    )
+  </script>
 </html>
 
