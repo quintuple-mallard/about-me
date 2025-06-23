@@ -1,27 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <section id="top-bar">
+
+<head>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<section id="top-bar">
     <h1>👋 Hi there!</h1>
-  </section>
-  <section id="main-page">
-    <div class="greeting">Hello!</div>
-    <div class="intro">I am a person who likes to code.<br/>I like:</div>
+</section>
+<section id="main-page">
+    <h2 class="intro">I am a person who likes to code.</h2>
+    <p>
+        I like:
+    </p>
     <ul id="langs">
-      <li>Python</li>
-      <li>HTML, CSS, and JavaScript</li>
-      <li>Uiua</li>
+        <li><a href="https://www.python.org">Python</a></li>
+      <li><a href="https://html.spec.whatwg.org/">HTML</a>, <a href="https://www.w3.org/Style/CSS/Overview.en.html">CSS</a>, and <a href="https://ecma-international.org/publications-and-standards/standards/ecma-262/">JavaScript</a></li>
+      <li><a href="https://www.uiua.org">Uiua</a></li>
     </ul>
-    <div id="own-lang">
-      I am also making my own programming language, with source code at <a href="https://github.com/quintuple-mallard/mallard-lang/">a GitHub repo</a>
-      It will be added to the website soon, and may sometime get an online editor.
-    </div>
-    <div id="fun">
-      Some other fun things I have made:
-      <br />
-      Games:
-      <ul>
-        <li>Play <a href="https://quintuple-mallard.github.io/about-me/games/breakout">Breakout</a></li>
-      </ul>
-    </div>
-  </section>
+    <p id="own-lang">
+      I am also making my own programming language, with source code at <a href="https://github.com/quintuple-mallard/mallard-lang/">a GitHub repo</a>.<br/> It will be added to the website soon, and may sometime get an online editor.
+    </p>
+    <p id="fun">
+        Some other fun things I have made:
+        <br /> Games:
+        <ul>
+            <li>Play <a href="https://quintuple-mallard.github.io/about-me/games/breakout">Breakout</a></li>
+        </ul>
+    </p>
+</section>
+<style>
+  * {
+  font-family: "inter", sans-serif
+}
+#top-bar {
+  width: 100vw;
+  background: cyan;
+  height: 15vh;
+  text-align:center;
+}
+#main-page {
+  background: #eeffdd;
+  display: flex;
+  flex-direction:column;
+  .intro {
+    font-weight:600;
+  }
+  #langs {
+    list-style-type:"💻 ";
+  }
+}
+</style>
 </html>
