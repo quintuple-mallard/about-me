@@ -8,9 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <section id="top-bar">
-    <h1>👋 Hi there!</h1>
+  <div>Games</div> <div>Mallard</div> <div>Source code</div>
 </section>
-<section id="main-page">
+<section id="main-page" style="padding:5vmin">
+    <h1>👋 Hi there!</h1>
     <h2 class="intro">I am a person who likes to code.</h2>
     <p>
         I like:
@@ -25,8 +26,10 @@
     </p>
     <p id="fun">
         Some other fun things I have made:
-        <br /> Games:
-        <ul>
+        <br />
+        <br /> 
+       Games:
+        <ul id="games">
             <li>Play <a href="https://quintuple-mallard.github.io/about-me/games/breakout">Breakout</a></li>
         </ul>
     </p>
@@ -35,11 +38,23 @@
   * {
   font-family: "inter", sans-serif
 }
+html {
+  width: 100vw
+}
 #top-bar {
-  width: 100vw;
   background: cyan;
   height: 15vh;
-  text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  padding:0px 1em;
+  gap:1em;
+  div {
+    padding: 1rem;
+    background: lightcoral;
+    flex-grow: 1;
+    text-align:center;
+  }
 }
 #main-page {
   background: #eeffdd;
@@ -50,6 +65,9 @@
   }
   #langs {
     list-style-type:"💻 ";
+  }
+  #games {
+    list-style-type:"🎮 ";
   }
 }
 </style>
