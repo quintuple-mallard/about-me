@@ -8,7 +8,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <section id="top-bar">
-  <div>Games</div> <a href="https://quintuple-mallard.github.io/mallard-lang"><div>Mallard</div></a> <a href="https://github.com/quintuple-mallard/about-me/"><div>Source code</div></a>
+  <div>Games
+    <div id="games-list">
+      <a href="https://quintuple-mallard.github.io/about-me/games/breakout">Breakout</a>
+      <a href="https://quintuple-mallard.github.io/about-me/games/noughts-and-crosses">Noughts and crosses (tic-tac-toe)</a>
+      <a href="https://quintuple-mallard.github.io/about-me/404.html">Snake</a>
+    </div>
+  </div> 
+  <a href="https://quintuple-mallard.github.io/mallard-lang"><div>Mallard</div></a>
+  <a href="https://github.com/quintuple-mallard/about-me/"><div>Source code</div></a>
 </section>
 <section id="main-page" style="padding:5vmin">
     <h1>👋 Hi there!</h1>
@@ -23,16 +31,7 @@
     </ul>
     <p id="own-lang">
       I am also making my own programming language, with source code at <a href="https://github.com/quintuple-mallard/mallard-lang/">a GitHub repo</a>.
-    <p id="fun">
-        Some other fun things I have made:
-        <br />
-        <br /> 
-       Games:
-        <ul id="games">
-            <li>Play <a href="https://quintuple-mallard.github.io/about-me/games/breakout">Breakout</a></li>
-            <li>Play <a href="https://quintuple-mallard.github.io/about-me/games/noughts-and-crosses">noughts and crosses / tic-tac-toe</a>(2 players)</li>
-        </ul>
-    </p>
+  </p>
 </section>
 <style>
   * {
@@ -57,6 +56,31 @@ html {
     text-align:center;
     color:black;
   }
+  #games-list {
+    position:absolute;
+    display:none;
+    background: lightcoral;
+    width:100%;
+    left:0;
+    height:300%;
+  }
+  & :nth-child(1){
+    position:relative;
+  &:hover {
+    #games-list {
+      display:flex;
+      flex-direction:column;
+      & > * {
+        text-decoration:none;
+        color:black;
+        font-weight:800;
+        flex-grow:1;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+      }
+    }}
+  }
 }
 #main-page {
   background: #eeffdd;
@@ -70,9 +94,6 @@ html {
   }
   #langs {
     list-style-type:"💻 ";
-  }
-  #games {
-    list-style-type:"🎮 ";
   }
 }
 </style>
