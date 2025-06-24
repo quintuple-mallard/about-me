@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <section id="top-bar">
-  <div>Games</div> <div>Mallard</div> <div>Source code</div>
+  <div>Games</div> <a href="https://quintuple-mallard.github.io/mallard-lang"><div>Mallard</div></a> <div>Source code</div>
 </section>
 <section id="main-page" style="padding:5vmin">
     <h1>👋 Hi there!</h1>
@@ -49,11 +49,13 @@ html {
   justify-content: center;
   padding:0px 1em;
   gap:1em;
-  div {
+  & > * {
     padding: 1rem;
+    text-decoration:none;
     background: lightcoral;
     flex-grow: 1;
     text-align:center;
+    color:black;
   }
 }
 #main-page {
