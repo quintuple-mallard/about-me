@@ -62,14 +62,17 @@ html {
     background: lightcoral;
     width:100%;
     left:0;
-    height:300%;
+    height:auto;
+    
   }
   & :nth-child(1){
     position:relative;
   &:hover {
     #games-list {
+      background: #f47777;
       display:flex;
       flex-direction:column;
+      padding:20% 0px;
       & > * {
         text-decoration:none;
         color:black;
@@ -78,6 +81,9 @@ html {
         display:flex;
         align-items:center;
         justify-content:center;
+      }
+      & > * + * {
+        padding-top: 10%
       }
     }}
   }
