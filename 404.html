@@ -13,11 +13,11 @@
     </ul>
   </p>
   <button id="fix">Fix everything</button>
-  <p id="btn-msg" style="color:white">Nothing was fixed 😛</p>
+  <p id="btn-msg" style="display:none">Nothing was fixed 😛</p>
   <script>
     document.querySelector("#fix").addEventListener("click",
       () => {
-        document.querySelector("#btn-msg").style.color = "black"
+        document.querySelector("#btn-msg").style.display = "block"
       }
     )
   </script>
