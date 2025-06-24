@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+  <main>
+  <section class="tic-tac-toe">
+    <div class="square" id="0"></div>
+    <div class="square" id="1"></div>
+    <div class="square" id="2"></div>
+    <div class="square" id="3"></div>
+    <div class="square" id="4"></div>
+    <div class="square" id="5"></div>
+    <div class="square" id="6"></div>
+    <div class="square" id="7"></div>
+    <div class="square" id="8"></div>
+  </section>
+</main>
+  <style>
+    main{
+  background: white;
+  height:80vmin;
+  width: 80vmin;
+  margin: 10vmin auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tic-tac-toe{
+  /background: red;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(3,30%);
+  grid-template-columns: repeat(3,30%)
+}
+.square{
+  outline: 1px solid #aaa;
+  font-size: 20vmin;
+}
+  </style>
+  <script>
+    const primes = [2, 3, 5, 7, 11, 13, 17, 19, 23];
+const squares = {
+  elems: [],
+  usedPrimeProductX: 1,
+  usedPrimeProductO: 1,
+};
+let moveNum = 0;
+
+function colorSquares(...indices) {
+  for (const idx of indices) {
+    squares.elems[idx].elem.style.background = 'purple';
+  }
+}
+
+function checkForWin() {
+  let win = false; // Initialize win to false
+
+  // Check for player X wins
+  if (squares.usedPrimeProductX % 30 === 0) {
+    colorSquares(0, 1, 2);
+    win = true;
+  } else if (squares.usedPrimeProductX % 1001 === 0) {
+    colorSquares(3, 4, 5);
+    win = true;
+  } else if (squares.usedPrimeProductX % 7429 === 0) {
+    colorSquares(6, 7, 8);
+    win = true;
+  } else if (squares.usedPrimeProductX % 238 === 0) {
+    colorSquares(0, 3, 6);
+    win = true;
+  } else if (squares.usedPrimeProductX % 627 === 0) {
+    colorSquares(1, 4, 7);
+    win = true;
+  } else if (squares.usedPrimeProductX % 1495 === 0) {
+    colorSquares(2, 5, 8);
+    win = true;
+  } else if (squares.usedPrimeProductX % 506 === 0) {
+    colorSquares(0, 4, 8);
+    win = true;
+  } else if (squares.usedPrimeProductX % 935 === 0) {
+    colorSquares(2, 4, 6);
+    win = true;
+  }
+
+  // Check for player O wins
+  if (squares.usedPrimeProductO % 30 === 0) {
+    colorSquares(0, 1, 2);
+    win = true;
+  } else if (squares.usedPrimeProductO % 1001 === 0) {
+    colorSquares(3, 4, 5);
+    win = true;
+  } else if (squares.usedPrimeProductO % 7429 === 0) {
+    colorSquares(6, 7, 8);
+    win = true;
+  } else if (squares.usedPrimeProductO % 238 === 0) {
+    colorSquares(0, 3, 6);
+    win = true;
+  } else if (squares.usedPrimeProductO % 627 === 0) {
+    colorSquares(1, 4, 7);
+    win = true;
+  } else if (squares.usedPrimeProductO % 1495 === 0) {
+    colorSquares(2, 5, 8);
+    win = true;
+  } else if (squares.usedPrimeProductO % 506 === 0) {
+    colorSquares(0, 4, 8);
+    win = true;
+  } else if (squares.usedPrimeProductO % 935 === 0) {
+    colorSquares(2, 4, 6);
+    win = true;
+  }  
+  if (win) {
+    squares.elems.forEach(element => {
+      element.elem.removeEventListener('click', makeMove);
+    });
+  }
+  
+  return win;
+}
+
+function makeMove(e) {
+  if (e.target.textContent !== '') {
+    return; // Prevent overwriting
+  }
+  moveNum += 1;
+  e.target.textContent = ['x', 'o'][moveNum % 2];
+  if (e.target.textContent==='x'){
+    squares.usedPrimeProductX *= primes[Number(e.target.id)];
+  }
+  else {
+    squares.usedPrimeProductO *= primes[Number(e.target.id)];
+  }
+  if (checkForWin()) {
+    e.target.removeEventListener('click', makeMove);
+    return; 
+  } else if (moveNum === 9) {
+    document.querySelector('.tic-tac-toe').style.background = '#ddd';
+  }
+}
+
+let square; // To fix scoping issues
+for (let i = 0; i < 9; i++) {
+  square = document.querySelectorAll('.square')[i];
+  squares.elems.push({
+    idx: i,
+    elem: square,
+  });
+  square.addEventListener('click', makeMove);
+}
+  </script>
+</html>
