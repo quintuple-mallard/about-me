@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-  <main class="breakout">
+<main class="breakout">
   <div id="time">0</div>
   <div class="ball"></div>
   <div class="paddle"></div>
@@ -24,6 +24,7 @@
     <div class="block"></div>
     <div class="block"></div>
   </section>
+  <div id="instructions">Press any key to start</div>
 </main>
 <style>
   .breakout {
@@ -85,13 +86,39 @@
     background: red;
   }
 }
+#instructions {
+  color: red;
+  font-size:5vh;
+  height: 5vh;
+  aspect-ratio:10;
+  position: absolute;
+  left: 50vw;
+}
 </style>
 <script>
-  const time = Date.now()
+ let currentTime = Date.now();
+const diffs = [];
+
+function trackTime(frameCount = 20) {
+  let diff = Date.now() - currentTime
+  diffs.push(diff);
+  currentTime = Date.now();
+  
+  if (diffs.length < frameCount) {
+    requestAnimationFrame(() => trackTime(frameCount));
+  } else {
+    const avg = diffs.reduce((partialSum, a) => partialSum + a, 0) / diffs.length;
+    const frameRate = 1000/avg
+    ball.xv *= 60/frameRate
+    ball.yv *= 60/frameRate
+  }
+}
+trackTime();
+const time = Date.now()
 const ball = {
     active: true,
-    xv: -0.75,
-    yv: -0.75,
+    xv: -1,
+    yv: -1,
     radius: 2,
     x: 40,
     y: 73,
@@ -219,6 +246,10 @@ function gameLoop() {
         document.querySelector('#time').textContent = `Time: ${(Date.now()-time)/1000}`
     }
 }
-requestAnimationFrame(gameLoop);
+function startGame() {
+  requestAnimationFrame(gameLoop);
+  window.removeEventListener("keydown",startGame)
+}
+window.addEventListener("keydown",startGame)
 </script>
 </html>
